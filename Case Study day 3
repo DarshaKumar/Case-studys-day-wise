@@ -1,0 +1,82 @@
+# Day3
+Case study question 1
+----------------------------
+package com.intellect;
+import java.util.Scanner;
+public class MainRunRate {
+public static void main(String[] args) {
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter total number of overs");
+int totalovers=sc.nextInt();
+System.out.println("Enter Target Runs");
+int target=sc.nextInt();
+System.out.println("Enter overs bowled"); 
+int oversBowled=sc.nextInt();
+System.out.println("Enter run scored");
+int runs=sc.nextInt();
+float currentRunRate=runs/oversBowled;
+System.out.println("Current Run Rate :"+currentRunRate);
+float rruns=target-runs;
+float oversleft=totalovers-oversBowled;
+float rrunrate=rruns/oversleft;
+System.out.println("Run Rate required after 10 overs"+rrunrate);
+}
+}
+--------------------------------------------------------------------
+Case study question 2
+----------------------------------------------------------
+package com.intellect;
+import java.util.Scanner;
+public class TotalExpensiveEvent {
+	public static void main(String[] args) {
+double brandingExpenses,travelExpensis,foodExpenses,logisticexpenses;
+double totalExpenses;
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter branding expenses");
+brandingExpenses=sc.nextDouble();
+System.out.println("Enter travel expenses");
+travelExpensis=sc.nextDouble();
+System.out.println("Enter food expenses");
+foodExpenses=sc.nextDouble();
+System.out.println("Enter logistics expenses");
+logisticexpenses=sc.nextDouble();
+totalExpenses=brandingExpenses+travelExpensis+foodExpenses+logisticexpenses;
+System.out.println("Total expenses:"+String.format("%.2f",totalExpenses));
+System.out.println("Branding expenses percentage:"+String.format("%.2f",(brandingExpenses/totalExpenses)*100)+"%");
+System.out.println("Travel expenses percentage::"+String.format("%.2f",(travelExpensis/totalExpenses )*100)+"%");
+System.out.println("Food expenses percentage:"+String.format("%.2f",(foodExpenses/totalExpenses )*100)+"%");
+System.out.println("Logistics expenses percentage:"+String.format("%.2f",(logisticexpenses/totalExpenses )*100)+"%");
+	}
+}
+------------------------------------------------------------------------
+case study question 3
+-------------------------------------------------------------------------
+package com.intellect;
+import java.util.Scanner;
+public class MagicShows {
+public static void main(String[] args) {
+int peoplesWatchedShow1;
+float ratingsShow1;
+int peoplesWatchedShow2;
+float ratingsShow2;
+int peoplesWatchedShow3;
+float ratingsShow3;
+float overallAverageRating;
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter the number of people who watched show 1");
+peoplesWatchedShow1=sc.nextInt();
+System.out.println("Enter the average rating for show 1");
+ratingsShow1=sc.nextFloat();
+System.out.println("Enter the number of people who watched show 2");
+peoplesWatchedShow2=sc.nextInt();
+System.out.println("Enter the average rating for show 2");
+ratingsShow2=sc.nextFloat();
+System.out.println("Enter the number of people who watched show 3");
+peoplesWatchedShow3=sc.nextInt();
+System.out.println("Enter the average rating for show 3");
+ratingsShow3=sc.nextFloat();
+overallAverageRating=(((peoplesWatchedShow1*ratingsShow1)+(peoplesWatchedShow2*ratingsShow2)+(peoplesWatchedShow3*ratingsShow3))/(peoplesWatchedShow1+peoplesWatchedShow2+peoplesWatchedShow3));
+System.out.println("The overall average rating for the show is "+String.format("%.2f",overallAverageRating));
+	}
+}
+-----------------------------------------------------------------------------------------------------------------------------
