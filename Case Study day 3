@@ -79,6 +79,31 @@ overallAverageRating=(((peoplesWatchedShow1*ratingsShow1)+(peoplesWatchedShow2*r
 System.out.println("The overall average rating for the show is "+String.format("%.2f",overallAverageRating));
 	}
 }
+-------------------------------------------------------------------------------------------------------------
+case study 4
+--------------------------------------------------------------------------------------------------------------
+package com.intellect;
+
+import java.util.Scanner;
+
+public class EmployeeSalary {
+	public static void main(String[] args) {
+int totalSalary;
+System.out.println("Enter the total salary paid to Justin");
+Scanner sc=new Scanner(System.in);
+totalSalary=sc.nextInt();
+for(int i=10; i<=totalSalary;i++)
+{
+int x=80*i+50*(i-10);
+if(totalSalary-x>=0 && totalSalary-x<130)
+{
+	System.out.printf("Number of weekdays hours %d\nNumber of weekends hours %d",i,(i-10));
+	}
+
+}
+	}
+}
+
 -----------------------------------------------------------------------------------------------------------------------------
 Case study 5
 ---------------------------------------------------------
