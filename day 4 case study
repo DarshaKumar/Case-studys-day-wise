@@ -1,0 +1,118 @@
+Problem 1:-Customer Offer
+------------------------------------------------
+package com.intellect.day4;
+import java.util.Scanner;
+public class CustomerOffer {
+	public static void main(String[] args) {
+float p1cost,p2cost,p3cost;
+float total;
+float offer1,offer2;
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter produt1 cost");
+p1cost=sc.nextInt();
+System.out.println("Enter produt2 cost");
+p2cost=sc.nextInt();
+System.out.println("Enter produt3 cost");
+p3cost=sc.nextInt();
+total=p1cost+p2cost+p3cost;
+offer1=(float) (total*0.20);
+if(p1cost<p2cost&&p1cost<p3cost){
+	offer2=p1cost;
+}
+else if(p2cost<p3cost){
+	offer2=p2cost;
+}
+else{
+	offer2=p3cost;
+}
+System.out.println("Total Price: "+total);
+System.out.println("Offer 1 price: "+offer1);
+System.out.println("Offer 2 price: "+offer2);
+System.out.println();
+if(offer1<offer2){
+	System.out.println("Offer 1 is beneficial");
+    System.out.println("The total payable price: "+(total-offer1));
+}
+else{
+	System.out.println("Offer 2 is beneficial");
+System.out.println("The total payable price: "+(total-offer2));
+}
+	}
+}
+-----------------------------------------------------------------
+Problem 2:Chocolates And Children
+----------------------------------------------------------------
+package com.intellect.day4;
+import java.util.Scanner;
+public class ChocolatesAndChildren {
+static int count=0;
+	public static void main(String[] args) {
+int chocolates;
+int children;
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter no.of Chocolates");
+chocolates=sc.nextInt();
+System.out.println("Enter no.of children");
+children=sc.nextInt();
+for(int i=1;i<=children;i++){
+	if(chocolates>=i){
+		chocolates=chocolates-i;
+		count++;
+	}
+}
+System.out.println("Chocolates remaining "+chocolates);
+System.out.println("No.of children got the chocolates "+count);
+	}
+}
+---------------------------------------------------------------------------
+Problem 3:Archery Game
+--------------------------------------------------------------------------
+package com.intellect.day4;
+import java.util.Scanner;
+public class ArcheryGame {
+	static int count=0;
+	static int currentTarget=0;
+	public static void main(String[] args) {
+		int target=100;
+        Scanner sc=new Scanner(System.in);
+		while(currentTarget<target){
+			System.out.println("Enter score");
+			int presenttarget=sc.nextInt();
+			currentTarget+=presenttarget;
+			count++;
+			}
+		System.out.println("No.of turns taken "+count);
+		}
+	}
+----------------------------------------------------------------
+Problem 4:Watermelon
+--------------------------------------------------------------------
+package com.intellect.day4;
+import java.util.Scanner;
+public class Watermelon {
+static int count=0;
+	public static void main(String[] args) {
+int weight;
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter the watermelon weight");
+weight=sc.nextInt();
+if(weight%2==0){
+	int a=weight/2;
+	System.out.printf("I get %d Kgs and my sibling gets %d Kgs",a,a);
+}
+else{
+	System.out.println("\nsry, you can't buy, look for even weight watermelon");
+}
+System.out.printf("\nThe possible ways of splitting %d Kgs are\n",weight);
+for(int i=1;i<weight;i++){
+	for(int j=1;j<weight;j++){
+		int temp=i+j;
+		if(temp==weight){
+			count++;
+			System.out.println(i+" "+j);
+		}
+	}
+}
+System.out.println("No.of splitting "+count);
+	}
+}
