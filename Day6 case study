@@ -1,0 +1,249 @@
+Case study 1
+-----------------------------------
+ItemType.java
+--------------------------------------
+package com.intellect.day6;
+
+public class ItemType {
+private String	name;	
+private Double	deposit;
+private Double costPerDay;
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public Double getDeposit() {
+	return deposit;
+}
+public void setDeposit(Double deposit) {
+	this.deposit = deposit;
+}
+public Double getCostPerDay() {
+	return costPerDay;
+}
+public void setCostPerDay(Double costPerDay) {
+	this.costPerDay = costPerDay;
+}
+public ItemType() {
+	
+}
+public ItemType(String name, Double deposit, Double costPerDay) {
+	this.name = name;
+	this.deposit = deposit;
+	this.costPerDay = costPerDay;
+}
+@Override
+public String toString() {
+	return "Name=" + name + "\nDeposit=" + deposit + "\nCostPerDay=" + costPerDay;
+}
+
+}
+---------------------------------------------------
+ItemTypeBO.java
+--------------------------------------------------
+package com.intellect.day6;
+
+import java.util.Scanner;
+
+public class ItemTypeBO {
+	public void add(ItemType object ,ItemType[] itemTypeArray,Integer index){
+		itemTypeArray[index]=object;
+		System.out.println("New item added successfully");
+	}
+	public void search(String search, ItemType[] itemTypeArray){
+		boolean flag=false;
+		for(int i=0;i<itemTypeArray.length;i++){
+			if(itemTypeArray[i].getName().equals(search)){
+				flag=true;
+				System.out.println("item Found");
+				System.out.println(itemTypeArray[i]);
+			}
+		}
+		if(flag==false)
+			System.out.println("Searched Item Type not found");
+	}
+	public void display(ItemType[] itemTypeArray){
+		for(int i=0;i<itemTypeArray.length;i++){
+		System.out.println("Item Type Number :"+(i+1));
+		System.out.println(itemTypeArray[i]);
+		}
+	}
+	
+	public static void main(String args[]){
+		ItemTypeBO itemTypeBO=new ItemTypeBO();
+		
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Number of Item Type");
+		int n=sc.nextInt();
+		ItemType itemType[]=new ItemType[n];
+		if(n>=1&&n<=10){
+			for(int i=0;i<n;i++){
+				System.out.printf("Enter the Item Type %d Name",(i+1));
+				String name=sc.next();
+				System.out.println("Enter the Deposit Amount");
+				Double deposit=sc.nextDouble();
+				System.out.println("Enter the Cost per day");
+				Double costPerDay=sc.nextDouble();
+				itemType[i]=new ItemType(name, deposit, costPerDay);
+				itemTypeBO.add(itemType[i], itemType, i);
+			}
+				itemTypeBO.display(itemType);
+		}
+		System.out.println("Enter the Name of the item to be searched");
+		String search=sc.next();
+		itemTypeBO.search(search, itemType);
+	}
+}
+---------------------------------------------------------------------------------------------
+Case Study 2
+---------------------------------------------------------------
+User.java
+-----------------------
+package com.intellect.day6;
+
+public class User {
+private String name, mobileNumber,username,password;
+
+public User(String name, String mobileNumber, String username, String password) {
+	super();
+	this.name = name;
+	this.mobileNumber = mobileNumber;
+	this.username = username;
+	this.password = password;
+}
+
+public User() {
+	super();
+	// TODO Auto-generated constructor stub
+}
+
+public String getName() {
+	return name;
+}
+
+public void setName(String name) {
+	this.name = name;
+}
+
+public String getMobileNumber() {
+	return mobileNumber;
+}
+
+public void setMobileNumber(String mobileNumber) {
+	this.mobileNumber = mobileNumber;
+}
+
+public String getUsername() {
+	return username;
+}
+
+public void setUsername(String username) {
+	this.username = username;
+}
+
+public String getPassword() {
+	return password;
+}
+
+public void setPassword(String password) {
+	this.password = password;
+}
+
+@Override
+public String toString() {
+	return "Name=" + name + "\nmobileNumber=" + mobileNumber;
+}
+
+}
+----------------------------------------
+UserBo.java
+---------------------------------
+package com.intellect.day6;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class UserBO {
+	public void addUser(User[] userArrray,User userIns,int index){
+		userArrray[index]=userIns;
+		
+	}
+	public void sortUsers(User[] userArrray) {
+		Arrays.sort(userArrray, (a,b)-> a.getName().compareTo(b.getName()));
+	}
+	public Boolean deleteUser(User[] userArrray,String name){
+		User[] userArrray2 = userArrray;
+		boolean flag=false;
+		for(int i=0;i<userArrray.length;i++){
+			if(userArrray[i].getName().equals(name)){
+				flag=true;
+				System.out.println("User deleted successfully");
+				userArrray[i]=null;
+			}
+		}
+		return flag;
+		
+	}
+	public void displayAll(User[] userArray){
+		// It prints all array object values including null objects
+		/*int i1=1;
+		for(User users:userArray){
+			System.out.println("User "+i1);
+			System.out.println(users);
+			i1++;
+		}*/
+		// It prints all array object values excluding null objects
+		int count=1;
+		for(int i=0;i<userArray.length;i++){
+			if(userArray[i]!=null){
+				System.out.println("User "+count);
+				System.out.println(userArray[i]);
+				count++;
+			}
+			
+		}
+		
+	}
+	public static void main(String[] args) {
+
+User user[];
+UserBO userBO=new UserBO();
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter the number of users:");
+int n=sc.nextInt();
+if(n>0){
+	user=new User[n];
+	for(int i=0;i<n;i++){
+		System.out.println("Enter the details of User "+(i+1));
+		System.out.println("Enter the name of the user: ");
+		String name=sc.next();
+		System.out.println("Enter the mobile number of the user: ");
+		String phone=sc.next();
+		System.out.println("Enter the username of the user: ");
+		String username=sc.next();
+	    System.out.println("Enter the password of the user: ");
+	    String password=sc.next();
+	    user[i]=new User(name, phone, username, password);
+	    userBO.addUser(user, user[i],i);
+	}
+	System.out.println("User details as entered:");
+	userBO.displayAll(user);
+	System.out.println("After sorting:");
+	userBO.sortUsers(user);
+	userBO.displayAll(user);
+	System.out.println("Enter the user to be deleted:");
+	String delUser=sc.next();
+	Boolean deleteUser = userBO.deleteUser(user, delUser);
+	if(deleteUser){
+		System.out.println("After deleteing");
+		userBO.displayAll(user);
+	}
+	else
+		System.out.println("No user found with given name");
+	
+}
+	}
+
+}
