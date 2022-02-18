@@ -105,7 +105,7 @@ if(totalSalary-x>=0 && totalSalary-x<130)
 }
 
 -----------------------------------------------------------------------------------------------------------------------------
-Case study 5
+Case study 5 
 ---------------------------------------------------------
 package com.intellect;
 import java.util.Scanner;
@@ -147,7 +147,7 @@ public class CurrencySystem {
 		        one = amount;
 		    }
 
-System.out.println("Minimum number of currency notes :"+(hundred+fifty+ten+five+two+one));
+System.out.println("Minimum number of currency notes :-"+(hundred+fifty+ten+five+two+one));
 	}
 
 }
